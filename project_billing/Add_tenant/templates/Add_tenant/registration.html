@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'Add_tenant/css/reg.css' %}">
+    <script src="{% static 'Add_tenant/js/jquery-3.7.1.min.js' %}" defer></script>
+    <script src="{% static 'Add_tenant/js/reg_script.js' %}" defer></script>
+</head>
+<body>
+    <div class="auth_reg_form">
+        <form action="" method="post" id="reg_form">
+            {% csrf_token %}
+            <input type="text" class="name reg_input" name="username" placeholder="Логін" value="{{username}}" >
+            <input type="email" class="email reg_input" name="email" placeholder="Пошта" value="{{email}}" >
+            <input type="password" class="password reg_input" name="password" placeholder="Пароль" value="{{password}}" >
+            <input type="text" class="phone reg_input" name="phone" placeholder="Телефон" value="{{phone}}" >
+            
+            <!-- {% if error %} -->
+            
+            
+            <!-- <div class="error_div"></div> -->
+            <!-- {% endif %} -->
+
+                
+            <!-- <input type="submit" value="Зареєструватись"> -->
+        </form>
+        <button class="submit_button">Зареєструватись</button> 
+    </div>
+</body>
+</html>
