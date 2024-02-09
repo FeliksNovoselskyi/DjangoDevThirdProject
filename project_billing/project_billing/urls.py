@@ -23,7 +23,8 @@ import Add_tenant.views as ant_views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('auth_page/', ant_views.auth_views, name="auth_page"),
-    path('reg_page/', ant_views.reg_views, name="reg_page")
+    path('reg_page/', ant_views.reg_views, name="reg_page"),
+    path('add_tenant_page/', ant_views.add_tenant_views, name="add_tenant_page")
      
 ]
 # if DEBUG:

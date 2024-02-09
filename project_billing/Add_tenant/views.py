@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.db.utils import IntegrityError
+from .models import *
 
 # Create your views here.
 def auth_views(request):
@@ -18,7 +19,7 @@ def auth_views(request):
         password = request.POST.get('password')
 
         if username and password:
-            user = authenticate(username=username, 
+            user = authenticate(username=username,
                                 password=password)
             if user:
                 login(request, user)
@@ -66,3 +67,25 @@ def reg_views(request):
     print(context)
                                     
     return render(request, "Add_tenant/registration.html", context)
+
+
+def add_tenant_views(request):
+    context = {}
+    
+    if request.method == "POST":
+        place = request.POST.get('place')
+        start_date = request.POST.get('start_date')
+        end_date = request.POST.get('end_date')
+        tenant_name = request.POST.get('tenant_name')
+        
+        if place and start_date and end_date and tenant_name:
+            Tenant.objects.create(
+                place = place,
+                start_date = start_date,
+                end_date = end_date,
+                tenant_name = tenant_name,
+            )
+        else:
+            context["error"] = "Поля не заповнені!"
+    
+    return render(request, "Add_tenant/add_tenant.html", context)

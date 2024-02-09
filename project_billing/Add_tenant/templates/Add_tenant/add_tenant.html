@@ -1,0 +1,44 @@
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'Add_tenant/css/add_tenant.css' %}">
+    
+</head>
+<body>
+    <div class="add_tenant_cont">
+        <p class="p_headline">Додати орендаря</p>
+        <form action="" method="post" class="addtenant_form">
+            {% csrf_token %}
+            <div class="inp_cont">
+                <p>Місце оренди</p>
+                <input class = "add_inp text_input" type="text" name = "place"> 
+            </div>
+                
+            <div class="inp_cont">
+                <p>Початок договору</p>
+                <input class = "add_inp" type="date" name = "start_date">  
+            </div>
+        
+            <div class="inp_cont">
+                <p>Кінець договору</p>
+                <input class = "add_inp" type="date" name = "end_date">
+            </div>
+        
+            <div class="inp_cont">
+                <p>Орендар</p>
+                <input class = "add_inp text_input" type="text" name = "tenant_name">
+            </div>
+        
+            {% if error %}
+                <p class="error">
+                    {{error}}
+                </p>
+            {% endif %}
+            <button class = "submit_btn">Відправити</button>
+        </form>
+    </div>
+</body>
+</html>

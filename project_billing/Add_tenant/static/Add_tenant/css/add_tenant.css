@@ -1,0 +1,115 @@
+/* *{
+    margin: 0;
+} */
+
+body{
+    display: flex;
+    justify-content: center;
+    background: linear-gradient(to left, rgb(26, 108, 216), rgb(47, 136, 190), rgb(147, 247, 249));
+}
+
+p {
+    font-size: 17.5px;
+    color: rgb(31, 31, 31);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    user-select: none;
+}
+
+.p_headline{
+    font-size: 25px;
+    color: rgb(19, 19, 19);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    user-select: none;
+
+}
+
+.add_tenant_cont{
+    display: inline;
+    background-color: rgb(213, 218, 231);
+    flex-wrap: wrap-reverse;
+    gap: 35px;
+    /* margin-top: 200px; */
+    border: transparent;
+    padding: 5px 15px;
+    height: 30%;
+    border-radius: 12px;
+    margin-top: 250px;
+    /* width: 200px; */
+
+}
+
+.addtenant_form{
+    display: flex;
+    /* flex-direction: column; */
+    flex-wrap: wrap;
+    text-align: center;
+    align-items: center;
+    /* width: 10%; */
+    border: transparent;
+    padding: 20px 0;
+    border-radius: 12.5px;
+    gap: 27.5px;
+    opacity: 80%;
+}
+
+.inp_cont{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 25px;
+    padding: 10px;
+    border: transparent;
+    background-color: transparent;
+    color: rgb(18, 18, 18);
+}
+
+.add_inp {
+    display: flex;
+    height: 50px;
+    width: 205px;
+    font-size: 25px;
+    text-align: center;
+    border: transparent;
+    background-color: rgb(233, 235, 242);
+    color: rgb(18, 18, 18);
+    border-radius: 16px;
+    transition: all 300ms ease-in-out;
+}
+
+.add_inp:hover{
+    /* text-align: center; */
+    background-color: rgb(223, 226, 238);
+}
+
+.text_input:hover{
+    font-size: 22.5px;
+    background-color: rgb(223, 226, 238);
+
+}
+.submit_btn{
+    height: 125px;
+    width: 200px;
+    color: rgb(226, 226, 226);
+    font-size: 25px;
+    border: transparent;
+    border-radius: 16px;
+    background-color: rgb(39, 70, 104);
+    cursor: pointer;
+    transition: all 300ms ease-in-out;
+}
+
+.submit_btn:hover{
+    /* height: 55px;
+    width: 205px; */
+    font-size: 18px;
+    background-color: rgb(34, 60, 89);
+    border-radius: 20px;
+}
+
+
+.error {
+    font-size: 17.5px;
+    color: rgb(31, 31, 31);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
