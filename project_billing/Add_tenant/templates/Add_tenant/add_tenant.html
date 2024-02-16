@@ -12,10 +12,24 @@
         <p class="p_headline">Додати орендаря</p>
         <form action="" method="post" class="addtenant_form">
             {% csrf_token %}
+            
             <div class="inp_cont">
                 <p>Місце оренди</p>
-                <input class = "add_inp text_input" type="text" name = "place"> 
+                <select name="place" id="place">
+                    <option value="dafi">ТЦ "Дафі"</option>
+                    <option value="mostcity">ТЦ "Мост-сіті"</option>
+                    <option value="babylon">ТЦ "Вавилон"</option>
+                    <option value="slavutic">ТЦ "Славутич"</option>
+                </select>
             </div>
+
+            <div class="inp_cont">
+                <p>Номер договору</p>
+                <input class = "add_inp text_input" type="text" name = "treaty_number">
+            </div>            
+
+
+
                 
             <div class="inp_cont">
                 <p>Початок договору</p>
@@ -26,11 +40,46 @@
                 <p>Кінець договору</p>
                 <input class = "add_inp" type="date" name = "end_date">
             </div>
+
+            <div class="inp_cont">
+                <p>Дата договору</p>
+                <input class = "add_inp" type="date" name = "treaty_date">
+            </div>
+
         
+
+
+
+
+            
             <div class="inp_cont">
                 <p>Орендар</p>
                 <input class = "add_inp text_input" type="text" name = "tenant_name">
             </div>
+
+            <div class="inp_cont">
+                <p>Орендодавець</p>
+                <select name="lessor_name" id="lessor_name">
+                    <option value="keys_ltd">КЕЙС ЛТД</option>
+                    <option value="w_it">World.IT</option>
+                    <option value="logika">Логіка</option>
+                    <option value="it_step">ШАГ</option>
+                </select>
+            </div>
+
+
+            <div class="inp_cont">
+                <p>Тип договору</p>
+                <select name="treaty_type" id="treaty_type">
+                    <option value="energy_treaty">Договір енергетика</option>
+                </select>
+            </div>
+
+            <div class="inp_cont">
+                <p>Номер лоту</p>
+                <input class = "add_inp text_input" type="text" name = "lot_number">
+            </div>            
+            
         
             {% if error %}
                 <p class="error">

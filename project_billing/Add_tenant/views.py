@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, get_object_or_404
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.db.utils import IntegrityError
@@ -69,22 +69,42 @@ def reg_views(request):
     return render(request, "Add_tenant/registration.html", context)
 
 
-def add_tenant_views(request):
+def add_tenant_views(request): # , id
     context = {}
+    # place = get_object_or_404(Place, id=id)
     
     if request.method == "POST":
-        place = request.POST.get('place')
+        tenant_name = request.POST.get('tenant_name')
         start_date = request.POST.get('start_date')
         end_date = request.POST.get('end_date')
-        tenant_name = request.POST.get('tenant_name')
+        lot_number = request.POST.get('lot_number')
         
-        if place and start_date and end_date and tenant_name:
+        lessor_name = request.POST.get('lessor_name')
+        place = request.POST.get('place')
+        
+        treaty_date = request.POST.get('treaty_date')
+        treaty_number = request.POST.get('treaty_number')
+        treaty_type = request.POST.get('treaty_type')
+        
+        if tenant_name and start_date and end_date and lot_number and lessor_name and place and treaty_date and treaty_number and treaty_type:
             Tenant.objects.create(
-                place = place,
                 start_date = start_date,
                 end_date = end_date,
                 tenant_name = tenant_name,
+                lot_number = lot_number,
             )
+            Place.objects.create(place = place)
+            LessorName.objects.create(lessor_name = lessor_name) # , place = place
+            # Lessor.objects.create(
+            #     lessor_name = lessor_name,
+            #     place = place,
+            # )
+            
+            Treaty.objects.create(
+                treaty_date = treaty_date,
+                treaty_number = treaty_number,
+                treaty_type = treaty_type,
+            )    
         else:
             context["error"] = "Поля не заповнені!"
     
